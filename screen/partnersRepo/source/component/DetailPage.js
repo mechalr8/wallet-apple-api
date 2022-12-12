@@ -17,6 +17,7 @@ import {
   TouchableNativeFeedback,
 } from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import WalletManager from 'react-native-wallet-manager';
 /**
  * Custom Modules
  */
@@ -289,11 +290,25 @@ const TicketCard = ({
         <Button
           title="Add to Apple Wallet"
           color={PrimaryColor.BACKGROUND_COLOR}
-          onPress={Linking.openURL('https://www.apple.com/wallet/')}
+          onPress={() => {
+            appleWallet();
+          }}
         />
       </View>
     </View>
   );
+};
+
+const appleWallet = async () => {
+  try {
+    const result = await WalletManager.addPassFromUrl(
+      'https://github.com/dev-family/react-native-wallet-manager/blob/main/example/resources/test.pkpass?raw=true',
+    );
+    console.log(result);
+    // true
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 const cardStyles = StyleSheet.create({

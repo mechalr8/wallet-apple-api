@@ -33,6 +33,7 @@
     "react-native-svg": "^13.6.0",
     "react-native-svg-transformer": "^1.0.0",
     "react-native-vector-icons": "^9.2.0",
+    "react-native-wallet-manager": "^0.0.2",
     "react-navigation": "^4.4.4"
   },
   "devDependencies": {
